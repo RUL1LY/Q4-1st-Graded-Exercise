@@ -84,7 +84,7 @@ Note: Most of the HTML, CSS and JS code to create dynamic textboxes to get guest
    - the happy birthday song
    - the jolly good fello with correct gender.
  - 30% user interface (9pts)
-   - changed of the look of the UI (for both home(inde.hbs) and Happy (happy.hbs)
+   - changed of the look of the UI (for both home(index.hbs) and Happy (happy.hbs))
    - all names had been changed to yours
    - inclusion of favicon
  - 10% overall organization (3pts)

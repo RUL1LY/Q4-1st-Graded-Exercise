@@ -4,16 +4,15 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width", initial-scale=1>
-  <meta name="author" content="">
-  <meta name="description" content=" ">
-  <meta name="keywords" content="">
-  <title>Canseco - CS 3 </title>
+  <meta name="author" content="Raphael Caleb S. Sorino">
+  <meta name="description" content="First graded 4th quarter, happy birthday song">
+  <meta name="keywords" content="hbs, w3.css, happy birthday">
+  <title>Sorino - CS 3 </title>
   <!-- using the w3.css framework to show how predefined css classes can be used inside an html document.  -->
   <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
   <!-- local css property definitions to further enhance the page -->
   <link href="style.css" rel="stylesheet" type="text/css" />
-
-  <link rel="icon" type="image/x-icon" href="">
+  <link rel="icon" type="image/x-icon" href="https://cdn.glitch.global/b0fea89b-81c8-48c4-9607-cc05762ced04/thumbnails_icon.png?v=1731425955509">
 </head>
 
 <!--- classes that starts with w3 are defined inside w3.css -->
@@ -29,13 +28,25 @@
 
 
   <header class="w3-container" id="header" > 
-    <h1>Roy Canseco - III-K - Jan 2025</h1>
+    <h1>Raphael Sorino - IV-Na - March 2025</h1>
     <h2> Birthday </h2>
   </header>
 
   <section class="w3-container" id="input"> 
     <h2>Output</h2>
     <!-- Place your output here -->
+    <p>
+    name: {{form.name}}
+    <br>
+    gender: {{form.gender}}
+    <br>
+    number: {{form.number}}
+    <br>
+    {{#each guests}}
+      {{this}}
+      <br>
+    {{/each}}
+    </p>
   </section>
 
   <footer class="w3-container ">
