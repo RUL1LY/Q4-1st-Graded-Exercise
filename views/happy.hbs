@@ -29,10 +29,13 @@
 
   <header class="w3-container" id="header" > 
     <h1>Raphael Sorino - IV-Na - March 2025</h1>
-    <h2> Birthday </h2>
+    <section id = "insideHeader">
+      <h2> Birthday </h2> 
+      <img id = "heart" src="https://instagram.fmnl30-1.fna.fbcdn.net/v/t39.30808-6/472341461_18478022914011426_7559834818687413088_n.jpg?stp=dst-jpg_e35_tt6&efg=eyJ2ZW5jb2RlX3RhZyI6IkNBUk9VU0VMX0lURU0uaW1hZ2VfdXJsZ2VuLjk2Mng5MjQuc2RyLmYzMDgwOC5kZWZhdWx0X2ltYWdlIn0&_nc_ht=instagram.fmnl30-1.fna.fbcdn.net&_nc_cat=106&_nc_oc=Q6cZ2QFAIXNqWR3hjJCjH7OWSjYBqEGvy4LjnWDgGfEZ0JmOYlsLALGcHuk3LafoVIpkcfk&_nc_ohc=omq6jv5iKI4Q7kNvgGrkGXs&_nc_gid=pZQ_uqmIPtNL_CBL2NrvxQ&edm=APoiHPcAAAAA&ccb=7-5&ig_cache_key=MzMwMjQ2NDIwNzMxMTM3NzQwNg%3D%3D.3-ccb7-5&oh=00_AYE_aDqj_nii9xAASOThyvyi_WqQ4pHZBT1cCRbcI1YaEQ&oe=67EC354F&_nc_sid=22de04" alt="">
+    </section>
   </header>
 
-  <section class="w3-container" id="input"> 
+  <section class="w3-container" id="inputHappy"> 
     <h2>Output</h2>
     <!-- Place your output here -->
     <p>
@@ -58,11 +61,32 @@
     </p>
   </section>
 
+  <div id="muteButton">
+    <div class = "unmute" onclick="muteUnmute(this)"></div>
+      <div id="audio-container">
+      <audio id="bg-audio" autoplay loop>
+        <source src="audio/happy-birthday-155461.mp3" type="audio/mp3">
+      </audio>
+    </div>
+  </div>
   <footer class="w3-container ">
-    <p> &copy; 2024 CS3 Teachers </p>
+    <p> &copy; 2025 Sorino, Raphael Caleb S. </p>
   </footer>
 
-
+  <script>
+    function muteUnmute(element) {
+      const audio = document.getElementById("bg-audio")
+      if (element.classList.contains("unmute")) {
+          element.classList.remove("unmute");
+          element.classList.add("mute");
+          audio.muted = true;
+      } else {
+          element.classList.remove("mute");
+          element.classList.add("unmute");
+          audio.muted = false;
+      }
+  }
+  </script>
 </body>
 
 </html>

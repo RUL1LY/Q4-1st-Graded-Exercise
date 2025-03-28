@@ -12,6 +12,8 @@
 
   //Serves static files (we need it to import a css file)
   app.use(express.static(path.join(__dirname, "public")));
+  app.use('/audio', express.static(path.join(__dirname, 'public/audio')));
+
   app.set("view engine", "hbs");
   app.use(bodyParser.urlencoded({ extended: true }));
 
