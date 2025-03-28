@@ -33,16 +33,51 @@
     const formData = req.body;
 
     const guests = [];
+    const filtered = [];
     const num = parseInt(formData.number);
 
+    //Song Arrays
+    pronoun = formData.gender == "male" ? "he's" : "she's";
+    const goodFellow = ["For", `${pronoun}`, "a", "jolly", "good", "fellow.", "For", `${pronoun}`, "a", "jolly", "good", "fellow.", "For", `${pronoun}`, "a", "jolly", "good", "fellow,", "which", "nobody", "can", "deny!"];
+    const happyBirthday = ["Happy", "birthday", "to", "you.", "Happy", "birthday", "to", "you.", "Happy", "birthday", "dear", `${formData.name}`, "Happy", "birthday", "to", "you!"];
+
+    // Loop through the form data and push the name and checkbox values to the guests array
     for (let i = 1; i<=num; i++) {
       let name = formData[`name${i}`];
       let checkBox = formData[`checkbox${i}`] ? "on" : "off";
-      guests.push(`name${i}: ${name}`);
-      guests.push(`checkbox${i}: ${checkBox}`);
+      guests.push({
+        name: name,
+        nameNumber: `name${i}`,
+        checkBox: checkBox,
+        checkBoxNumber: `checkbox${i}`
+      })
     }
-    res.render("happy", {form: formData, guests: guests} );
-  })
+
+
+    // Filter the guests array to only include the names of the guests that have the checkbox checked
+    for (let i = 0; i < guests.length; i++) {
+      if (guests[i].checkBox == "on") {
+        filtered.push(guests[i].name);
+      }
+    }
+
+    // Create the song output
+    let output = "";
+    let stop = false;
+    index = 0;
+    while (!stop) {
+      output += `${filtered[index%filtered.length]}: ${happyBirthday[index%16]}<br>`;
+
+      if (index >= filtered.length - 1 && index % 16 == 15) {
+        stop = true;
+      }
+      index++
+    }
+
+    output += `${filtered[index%filtered.length]}: For, ${pronoun}, a, jolly, good, fellow., For, ${pronoun}, a, jolly, good, fellow., For, ${pronoun}, a, jolly, good, fellow, which, nobody, can,  deny!`
+
+    res.render("happy", {form: formData, guests: guests, output: output} );
+  });
 
   //Makes the app listen to port 3000
   app.listen(port, () => console.log(`App listening to port ${port}`));
